@@ -62,6 +62,9 @@ public class Store {
      * Example line:
      * AV1051|JBL Bluetooth Speaker|89.95|Audio Video
      */
+
+    //Load product information from the CSV file into the inventory list.
+
     public static void loadInventory(String fileName, ArrayList<Product> inventory) {
 
         try {
