@@ -1,5 +1,7 @@
 package com.pluralsight;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -61,8 +63,32 @@ public class Store {
      * AV1051|JBL Bluetooth Speaker|89.95|Audio Video
      */
     public static void loadInventory(String fileName, ArrayList<Product> inventory) {
-        // TODO: skip the header line, then read each line, split on "|",
-        //       create a Product object, and add it to the inventory list
+
+        try {
+            String line;
+            BufferedReader reader = new BufferedReader(new FileReader(fileName));
+            reader.readLine();
+            while ((line = reader.readLine()) != null) {
+
+                String[] tokens = line.split("\\|");
+                String sku = tokens[0];
+                String name = tokens[1];
+                double price = Double.parseDouble(tokens[2]);
+                String department = tokens[3];
+
+                Product product = new Product(sku, name, price, department);
+
+                inventory.add(product);
+
+            }
+            reader.close();
+            System.out.println();
+            System.out.println("Products loaded: " + inventory.size());
+
+        } catch (Exception e) {
+            System.err.println("Something went wrong.");
+        }
+
     }
 
     /**
