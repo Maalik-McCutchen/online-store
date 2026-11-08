@@ -1,24 +1,18 @@
 # Project Title
+
 - An online store that customers can use to search products, add products, and checkout products.
 
 ## Description of the Project
+
 - This application is an online store for customers to view products from a csv file.
 - Customers will be able to control the application to search products and add them to check out.
-<!-- Three to five sentences. What the application does, who uses it, what problem it solves.
-     Write it for someone who has never seen the workbook: a recruiter, a classmate, you in six months. -->
 
 ## Features
 
-<!-- One bullet per thing the app can do, in the order of your menu. Mark bonuses.
-     For an API (Capstone 3), one line per endpoint instead: method, path, what it does.
-     Be honest: list what works. If something is half done, say so under Future Work instead.
-     Example:
-     - Shows every product in the store
-     - Searches products by name (bonus) -->
-
--
--
--
+- Shows every product in the store.
+- Add product ID to cart.
+- Shows customers selected cart items.
+- Customer can add payment and checkout selected item or items.
 
 ## User Stories
 
@@ -28,7 +22,7 @@
 - As a customer, I want to view the items in my shopping cart, so that I can check my items before checking out.
 - As a customer, I want to check out and pay for my items, so that I can check out my order.
 - As a customer, I want to receive a receipt after checkout, so that I have a record of my purchase.
-- As a customer, I want to navigate between the store's screens and exit the application, so that I can manage the online store.
+- As a user, I want an Informational README, so that I can understand the application's purpose, features, and how to run it.
 
 ## Setup
 
@@ -47,20 +41,13 @@
 
 ### Data and configuration
 
-<!-- OPTIONAL. Anything the program needs that is not code: data files and where they must sit, files the
-     program creates, a database script to run first, a settings file to edit (connection, port).
-     If there is nothing, delete this subsection, heading included.
-     Example:
-     - `inventory.csv` sits at the project root, next to `pom.xml`. The program reads it at start.
-     - `logs.txt` is created by the program at the project root on the first run. -->
-
--
+- products.csv is located in the project root directory, next to pom.xml.
+- The application reads products.csv when it starts and loads the product information into an ArrayList<Product>.
 
 ## Technologies Used
 
 - Java 17
 - IntelliJ IDEA
-<!-- Add anything else you used: a library, Maven plugins, an external tool. For a console app this list is short. That is fine. -->
 
 ## Demo
 
