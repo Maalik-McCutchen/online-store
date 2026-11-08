@@ -34,6 +34,7 @@ public class Store {
             System.out.println("1. Show Products");
             System.out.println("2. Show Cart");
             System.out.println("3. Exit");
+            System.out.println();
             System.out.print("Your choice: ");
 
             if (!myScanner.hasNextInt()) {
@@ -66,7 +67,6 @@ public class Store {
     //Load product information from the CSV file into the inventory list.
 
     public static void loadInventory(String fileName, ArrayList<Product> inventory) {
-
         try {
             String line;
             BufferedReader reader = new BufferedReader(new FileReader(fileName));
@@ -99,12 +99,33 @@ public class Store {
      * Typing X returns to the main menu.
      */
     public static void displayProducts(ArrayList<Product> inventory, ArrayList<Product> cart, Scanner myScanner) {
-        for (Product product : inventory) {
-            System.out.println(product.getSku() + " | " + product.getProductName() + " | " + product.getPrice() + " | " + product.getDepartment());
+
+        boolean shopping = true;
+        while (shopping) {
+
+
+            for (Product product : inventory) {
+                System.out.println(product.getSku() + " | " + product.getProductName() + " | " + product.getPrice() + " | " + product.getDepartment());
+            }
+            System.out.println("------------------------------------------------");
+            System.out.println("Enter product ID to add to cart");
+            System.out.println("Or enter X to return home");
+            System.out.println();
+            System.out.print("Your choice: ");
+            String productId = myScanner.nextLine();
+
+            if (productId.equalsIgnoreCase("X")) {
+                return;
+            }
+
+            Product product = findProductById(productId, inventory);
+
+            if (product != null) {
+                cart.add(product);
+                System.out.println("\u001B[32m" + "[" + product.getSku() + "]" + " Was added to the cart!" + "\u001B[0m");
+                System.out.println("------------------------------------------------");
+            }
         }
-        System.out.println("Enter product ID: " );
-        String productId = myScanner.nextLine();
-        Product product = findProductById(productId, inventory);
     }
 
     /**
