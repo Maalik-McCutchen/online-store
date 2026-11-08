@@ -101,8 +101,10 @@ public class Store {
     public static void displayProducts(ArrayList<Product> inventory, ArrayList<Product> cart, Scanner myScanner) {
         for (Product product : inventory) {
             System.out.println(product.getSku() + " | " + product.getProductName() + " | " + product.getPrice() + " | " + product.getDepartment());
-
         }
+        System.out.println("Enter product ID: " );
+        String productId = myScanner.nextLine();
+        Product product = findProductById(productId, inventory);
     }
 
     /**
@@ -135,6 +137,13 @@ public class Store {
      */
     public static Product findProductById(String id, ArrayList<Product> inventory) {
         // TODO: loop over the list and compare ids
+
+        for (Product product : inventory) {
+            if (product.getSku().equalsIgnoreCase(id)) {
+                return product;
+            }
+        }
+        System.out.println("Could not find that product.");
         return null;
     }
 }
