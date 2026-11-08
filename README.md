@@ -22,12 +22,13 @@
 
 ## User Stories
 
-<!-- The stories you worked from, one per bullet, in the format you learned in Workbook 3b:
-     As a [type of user], I want [some goal] so that [some reason].
-     Same text as the cards on your GitHub project board. -->
-
-- As a ..., I want ..., so that ...
-- As a ..., I want ..., so that ...
+- As a customer, I want to view all available products, so that I can see what the store has for sale.
+- As a customer, I want to search for a product by its ID, so that I can find the product I want to purchase.
+- As a customer, I want to add products to my cart, so that I can keep track of the items I want to purchase.
+- As a customer, I want to view the items in my shopping cart, so that I can check my items before checking out.
+- As a customer, I want to check out and pay for my items, so that I can check out my order.
+- As a customer, I want to receive a receipt after checkout, so that I have a record of my purchase.
+- As a customer, I want to navigate between the store's screens and exit the application, so that I can manage the online store.
 
 ## Setup
 
