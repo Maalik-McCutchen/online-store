@@ -2,20 +2,20 @@ package com.pluralsight;
 
 public class Product {
 
-    private String sku;
+    private String iD;
     private String productName;
     private double price;
     private String department;
 
-    public Product(String sku, String productName, double price, String department) {
-        this.sku = sku;
+    public Product(String iD, String productName, double price, String department) {
+        this.iD = iD;
         this.productName = productName;
         this.price = price;
         this.department = department;
     }
 
     public String getSku() {
-        return sku;
+        return iD;
     }
 
     public String getProductName() {
@@ -33,7 +33,7 @@ public class Product {
     @Override
     public String toString() {
         return "Product{" +
-                "sku='" + sku + '\'' +
+                "sku='" + iD + '\'' +
                 ", productName='" + productName + '\'' +
                 ", price=" + price +
                 ", department='" + department + '\'' +

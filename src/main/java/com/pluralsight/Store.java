@@ -27,7 +27,7 @@ public class Store {
         loadInventory("products.csv", inventory);
 
         // Main menu loop
-        Scanner scanner = new Scanner(System.in);
+        Scanner myScanner = new Scanner(System.in);
         int choice = -1;
         while (choice != 3) {
             System.out.println("\nWelcome to the Online Store!");
@@ -36,22 +36,22 @@ public class Store {
             System.out.println("3. Exit");
             System.out.print("Your choice: ");
 
-            if (!scanner.hasNextInt()) {
+            if (!myScanner.hasNextInt()) {
                 System.out.println("Please enter 1, 2, or 3.");
-                scanner.nextLine();                 // discard bad input
+                myScanner.nextLine();                 // discard bad input
                 continue;
             }
-            choice = scanner.nextInt();
-            scanner.nextLine();                     // clear newline
+            choice = myScanner.nextInt();
+            myScanner.nextLine();                     // clear newline
 
             switch (choice) {
-                case 1 -> displayProducts(inventory, cart, scanner);
-                case 2 -> displayCart(cart, scanner);
+                case 1 -> displayProducts(inventory, cart, myScanner);
+                case 2 -> displayCart(cart, myScanner);
                 case 3 -> System.out.println("Thank you for shopping with us!");
                 default -> System.out.println("Invalid choice!");
             }
         }
-        scanner.close();
+        myScanner.close();
     }
 
     /**
@@ -74,12 +74,12 @@ public class Store {
             while ((line = reader.readLine()) != null) {
 
                 String[] tokens = line.split("\\|");
-                String sku = tokens[0];
+                String iD = tokens[0];
                 String name = tokens[1];
                 double price = Double.parseDouble(tokens[2]);
                 String department = tokens[3];
 
-                Product product = new Product(sku, name, price, department);
+                Product product = new Product(iD, name, price, department);
 
                 inventory.add(product);
 
@@ -98,7 +98,7 @@ public class Store {
      * Displays all products and lets the user add one to the cart.
      * Typing X returns to the main menu.
      */
-    public static void displayProducts(ArrayList<Product> inventory, ArrayList<Product> cart, Scanner scanner) {
+    public static void displayProducts(ArrayList<Product> inventory, ArrayList<Product> cart, Scanner myScanner) {
         for (Product product : inventory) {
             System.out.println(product.getSku() + " | " + product.getProductName() + " | " + product.getPrice() + " | " + product.getDepartment());
 
@@ -109,7 +109,7 @@ public class Store {
      * Shows the contents of the cart, calculates the total,
      * and offers the option to check out.
      */
-    public static void displayCart(ArrayList<Product> cart, Scanner scanner) {
+    public static void displayCart(ArrayList<Product> cart, Scanner myScanner) {
         // TODO:
         //   • list each product in the cart
         //   • compute the total cost
@@ -124,9 +124,7 @@ public class Store {
      * 3. Display a simple receipt.
      * 4. Clear the cart.
      */
-    public static void checkOut(ArrayList<Product> cart,
-                                double totalAmount,
-                                Scanner scanner) {
+    public static void checkOut(ArrayList<Product> cart, double totalAmount, Scanner myScanner) {
         // TODO: implement steps listed above
     }
 
