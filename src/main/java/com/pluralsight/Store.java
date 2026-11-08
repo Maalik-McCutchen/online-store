@@ -109,7 +109,7 @@ public class Store {
             }
             System.out.println("------------------------------------------------");
             System.out.println("Enter product ID to add to cart");
-            System.out.println("Or enter X to return home");
+            System.out.println("X) Return Home ");
             System.out.println();
             System.out.print("Your choice: ");
             String productId = myScanner.nextLine();
@@ -138,6 +138,31 @@ public class Store {
         //   • compute the total cost
         //   • ask the user whether to check out (C) or return (X)
         //   • if C, call checkOut(cart, totalAmount, scanner)
+
+        double totalAmount = 0.0;
+
+        for (Product product : cart) {
+            System.out.println(product.getSku() + " | " + product.getProductName() + " | " + product.getPrice() + " | " + product.getDepartment());
+
+            totalAmount = totalAmount + product.getPrice();
+
+        }
+        System.out.println("------------------------------------------------");
+        System.out.println("Total: $" + totalAmount);
+        System.out.println();
+        System.out.println("C) Checkout ");
+        System.out.println("X) Return Home ");
+        System.out.println();
+        System.out.print("Your choice: ");
+        String userCart = myScanner.nextLine();
+
+        if (userCart.equalsIgnoreCase("X")) {
+            return;
+        }
+        if (userCart.equalsIgnoreCase("C")) {
+            checkOut(cart, totalAmount, myScanner);
+        }
+
     }
 
     /**
@@ -149,6 +174,29 @@ public class Store {
      */
     public static void checkOut(ArrayList<Product> cart, double totalAmount, Scanner myScanner) {
         // TODO: implement steps listed above
+
+        System.out.println("Your total is: $" + totalAmount);
+        System.out.println();
+        System.out.println("Are you sure you want to checkout? " + "(Y/N)");
+        System.out.print("Your choice: ");
+        String userCheckOut = myScanner.nextLine();
+
+        if (userCheckOut.equalsIgnoreCase("Y")) {
+            System.out.print("Enter your payment amount: $");
+            double paymentAmount = myScanner.nextDouble();
+
+            while (paymentAmount < totalAmount) {
+                System.out.println("Payment amount not enough");
+                paymentAmount = myScanner.nextDouble();
+
+            }
+            myScanner.nextLine();
+            double userChange = paymentAmount - totalAmount;
+            System.out.printf("Your change: $%.2f\n", userChange);
+        }
+        if (userCheckOut.equalsIgnoreCase("N")) {
+            return;
+        }
     }
 
     /**
