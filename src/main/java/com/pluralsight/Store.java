@@ -193,6 +193,18 @@ public class Store {
             myScanner.nextLine();
             double userChange = paymentAmount - totalAmount;
             System.out.printf("Your change: $%.2f\n", userChange);
+
+            System.out.println("========== RECEIPT ==========");
+            for (Product product : cart) {
+                System.out.println(product.getSku() + " | " + product.getProductName() + " | " + product.getPrice() + " | " + product.getDepartment());
+            }
+            System.out.println("------------------------------------------------");
+            System.out.printf("Total: $%.2f\n", totalAmount);
+            System.out.printf("Payment: $%.2f\n", paymentAmount);
+            System.out.printf("Change: $%.2f\n", userChange);
+            System.out.println("=============================");
+
+            cart.clear();
         }
         if (userCheckOut.equalsIgnoreCase("N")) {
             return;
