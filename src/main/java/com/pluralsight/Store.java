@@ -139,6 +139,10 @@ public class Store {
         //   • ask the user whether to check out (C) or return (X)
         //   • if C, call checkOut(cart, totalAmount, scanner)
 
+        if (cart.isEmpty()) {
+            System.out.println("Cart is empty");
+            return;
+        }
         double totalAmount = 0.0;
 
         for (Product product : cart) {
@@ -182,15 +186,28 @@ public class Store {
         String userCheckOut = myScanner.nextLine();
 
         if (userCheckOut.equalsIgnoreCase("Y")) {
-            System.out.print("Enter your payment amount: $");
-            double paymentAmount = myScanner.nextDouble();
+            double paymentAmount = 0.0;
 
-            while (paymentAmount < totalAmount) {
-                System.out.println("Payment amount not enough");
+            while (true) {
+                System.out.print("Enter your payment amount: $");
+
+                if (!myScanner.hasNextDouble()) {
+                    System.out.println("Invalid payment. Please enter a number.");
+                    myScanner.nextLine();
+                    continue;
+                }
+
                 paymentAmount = myScanner.nextDouble();
+                myScanner.nextLine();
 
+                if (paymentAmount < totalAmount) {
+                    System.out.println("Payment amount not enough.");
+                    continue;
+                }
+
+                break;
             }
-            myScanner.nextLine();
+
             double userChange = paymentAmount - totalAmount;
             System.out.printf("Your change: $%.2f\n", userChange);
 
