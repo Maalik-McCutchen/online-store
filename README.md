@@ -59,7 +59,7 @@
 
 ![Add product to cart](images/online-store-add-product-to-cart-demo.gif)
 
-**check out Product**
+**Check out Product**
 
 ![Check out product](images/online-store-checkout-product-demo.gif)
 
