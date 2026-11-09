@@ -5,16 +5,6 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- * Starter code for the Online Store workshop.
- * Learners will complete the TODO sections to make the program work.
- * <p>
- * What is already done for you: the two lists, the Home Screen loop and
- * the method headers. Each TODO says what that method has to do.
- * Product.java is complete; products.csv sits at the project root.
- * You will need extra imports (for example java.io.BufferedReader,
- * java.io.FileReader, java.io.IOException) as you fill the TODOs in.
- */
 public class Store {
 
     public static void main(String[] args) {
@@ -133,11 +123,6 @@ public class Store {
      * and offers the option to check out.
      */
     public static void displayCart(ArrayList<Product> cart, Scanner myScanner) {
-        // TODO:
-        //   • list each product in the cart
-        //   • compute the total cost
-        //   • ask the user whether to check out (C) or return (X)
-        //   • if C, call checkOut(cart, totalAmount, scanner)
 
         if (cart.isEmpty()) {
             System.out.println("Cart is empty");
@@ -177,7 +162,6 @@ public class Store {
      * 4. Clear the cart.
      */
     public static void checkOut(ArrayList<Product> cart, double totalAmount, Scanner myScanner) {
-        // TODO: implement steps listed above
 
         System.out.println("Your total is: $" + totalAmount);
         System.out.println();
@@ -234,7 +218,6 @@ public class Store {
      * @return the matching Product, or null if not found
      */
     public static Product findProductById(String id, ArrayList<Product> inventory) {
-        // TODO: loop over the list and compare ids
 
         for (Product product : inventory) {
             if (product.getSku().equalsIgnoreCase(id)) {
