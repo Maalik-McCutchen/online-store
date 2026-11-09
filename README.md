@@ -1,4 +1,4 @@
-# Project Title
+# Waltatoo Online Store
 
 - An online store that customers can use to search products, add products, and checkout products.
 
@@ -51,10 +51,17 @@
 
 ## Demo
 
+**Main Menu**
+
 ![Main menu](images/main-menu-demo.png)
 
+**Add Product to Cart**
+
 ![Add product to cart](images/online-store-add-product-to-cart-demo.gif)
-![check out product](images/online-store-checkout-product-demo.gif)
+
+**check out Product**
+
+![Check out product](images/online-store-checkout-product-demo.gif)
 
 ## A piece of code I am proud of
 
