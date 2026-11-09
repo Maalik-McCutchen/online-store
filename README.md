@@ -51,55 +51,64 @@
 
 ## Demo
 
-<!-- Pictures of the app running: the console for a console app, Insomnia or Swagger for an API.
-     Screenshots are enough; a GIF is a bonus.
-     1. Create a folder named `images` at the project root, next to `pom.xml`.
-     2. Take screenshots of the app in the IntelliJ console (the menu, one feature, one error message):
-          Windows: Win + Shift + S, drag a rectangle, then paste into Paint and save as PNG, or open the
-                   notification and save. Save into the `images` folder.
-          Mac:     Shift + Cmd + 4, drag a rectangle. The file lands on the Desktop; move it into `images`.
-     3. Name the files by what they show: `images/menu.png`, `images/search.png`.
-     4. Reference each one below with a relative path. No spaces in file names.
-     5. Commit the images with the rest of your work (Git > Commit shows them as unversioned files: tick them).
-     Optional GIF: LICEcap (free, Windows and Mac, <https://www.cockos.com/licecap/>) records a region of the
-     screen straight to a .gif. Keep it under 10 seconds and under 10 MB, save it into `images`. -->
+![Main menu](images/main-menu-demo.png)
 
-![Main menu](images/menu.png)
-
-![One feature in action](images/feature.png)
+![Add product to cart](images/online-store-add-product-to-cart-demo.gif)
+![check out product](images/online-store-checkout-product-demo.gif)
 
 ## A piece of code I am proud of
 
-<!-- Paste one short block of your own code (5 to 15 lines) between the three backticks, then write two
-     or three sentences: what it does and why you chose to write it that way. This is what you show on
-     demo day and what you talk about in an interview. -->
+- I am proud of this code because it allows the user to view the available products and add items to their 
+  shopping cart. It uses a loop to display products loaded from the CSV file and prompts 
+  the user to enter a product ID or return to the home screen. I used the findProductById() 
+  method to locate the selected product and, if it exists, add it to the cart using an ArrayList<Product>.
 
-```java
+```     
+   boolean shopping = true;
+        while (shopping) {
+
+
+            for (Product product : inventory) {
+                System.out.println(product.getSku() + " | " + product.getProductName() + " | " + product.getPrice() + " | " + product.getDepartment());
+            }
+            System.out.println("------------------------------------------------");
+            System.out.println("Enter product ID to add to cart");
+            System.out.println("X) Return Home ");
+            System.out.println();
+            System.out.print("Your choice: ");
+            String productId = myScanner.nextLine();
+
+            if (productId.equalsIgnoreCase("X")) {
+                return;
+            }
+
+            Product product = findProductById(productId, inventory);
+
+            if (product != null) {
+                cart.add(product);
+                System.out.println("\u001B[32m" + "[" + product.getSku() + "]" + " Was added to the cart!" + "\u001B[0m");
+                System.out.println("------------------------------------------------");
+            }
+        }
+    }
 
 ```
 
 ## Future Work
 
-<!-- What you would add or fix next, one bullet each. Unfinished bonuses belong here. -->
-
--
--
+- I would do the bonus so I can get experience on how to add quantities
+- I would improve the overall code to not crash and fix many more bugs that may show up
+- I would make the console more visually appealing
 
 ## Resources
 
-<!-- What helped you: the workbook, the week's hub pages, a tutorial, a documentation page. Real links. -->
-
 - Java YearUp Fall 2026 hub: <https://raymaroun.github.io/yearup-java-fall2026/>
--
+- https://raymaroun.github.io/yearup-java-fall2026/week-03/exercises/online-store.html
 
 ## Author
 
-<!-- Your name and, if you like, your GitHub profile link. For a team workshop, one line per person with what each one built. -->
-
-- **Your Name**
+- **Maalik McCutchen**
 
 ## Thanks
 
-<!-- Optional. The people who helped: the instructor, a classmate who debugged with you, a mentor. -->
-
-- Thank you to ... for ...
+- Thank you to Raymond for providing the starter code to us and giving us so many resources to complete our projects.
